@@ -171,3 +171,178 @@ git tag clase_1
   git switch main
   git merge login
   ```
+# Apuntes y Guía de JavaScript (JS)
+
+Esta guía organiza los conceptos básicos de manipulación de arreglos (Arrays), interacción con el **DOM** y el **BOM**, y manejo de eventos.
+
+---
+
+## 1. Métodos de Arrays
+
+Los arrays (o arreglos) nos permiten almacenar listas de elementos. JavaScript ofrece varios métodos integrados para manipularlos:
+
+```javascript
+const peliculas = ["Matrix", "Inception", "Alien"];
+
+// .push(): Añade un elemento al final del array
+peliculas.push("Terror"); 
+
+// .pop(): Elimina el último elemento del array
+peliculas.pop(); 
+
+// .indexOf(): Busca la posición (índice) de un elemento. Devuelve -1 si no lo encuentra
+const indice = peliculas.indexOf("Terror"); 
+
+// .slice(): Extrae una sección del array y devuelve un nuevo array
+const subArray = peliculas.slice(1); 
+
+// .join(): Convierte todos los elementos de un array en un string (texto) unido por un separador
+const texto = peliculas.join(", "); 
+
+// .split(): Método de String para convertir un texto en un array (dividido por un separador)
+const cadena = "hola mundo";
+const arrayDesdeTexto = cadena.split(" "); 
+
+// .sort(): Ordena los elementos del array.
+// Para números, se utiliza una función de comparación:
+const numeros = [5, 2, 8, 1];
+numeros.sort((a, b) => a - b); // Ordena de menor a mayor
+
+// .reverse(): Invierte el orden del array
+peliculas.reverse(); 
+
+// .find(): Busca y devuelve el primer elemento que cumpla con la condición
+const encontrado = peliculas.find(pelicula => pelicula === "Matrix");
+
+// .some(): Comprueba si al menos un elemento cumple una condición (devuelve true o false)
+const precios = [10, 5, 20];
+const hayMayorOIgualOcho = precios.some(precio => precio >= 8); 
+
+// .forEach(): Recorre cada elemento del array
+peliculas.forEach(pelicula => {
+  console.log(pelicula);
+});
+
+// Iterador for...in: Recorre los índices (o claves) de una estructura
+for (let i in peliculas) {
+  console.log(i, peliculas[i]);
+}
+```
+
+---
+
+## 2. Funciones Básicas de Entrada y Salida
+
+```javascript
+// prompt(): Muestra un diálogo para que el usuario introduzca texto
+let entrada = prompt("Introduce tu nombre:");
+
+// parseInt(): Convierte un string o valor a número entero
+let numero = parseInt("42");
+
+// document.write(): Escribe contenido directamente en el documento HTML (no recomendado en producción)
+document.write("<h1>Contenido Array</h1>");
+```
+
+---
+
+## 3. Manejo del DOM (Document Object Model)
+
+El **DOM** representa los elementos estructurales que forman parte de una página web en forma de árbol de nodos.
+
+### Selección de Elementos
+
+```javascript
+// Seleccionar por ID
+const caja = document.getElementById("caja");
+
+// Seleccionar por selector CSS (ID, clase o etiqueta)
+const cajaQuery = document.querySelector("#micaja");
+
+// Seleccionar múltiples elementos por su etiqueta HTML
+const todosLosDivs = document.getElementsByTagName("div");
+```
+
+### Modificación de Estilos y Propiedades
+
+```javascript
+// Modificar contenido CSS mediante la propiedad style
+caja.style.background = "red";
+caja.style.padding = "20px";
+caja.style.color = "white";
+
+// Modificar o asignar la clase CSS
+caja.className = "mi-clase-personalizada";
+
+// Obtener o modificar texto/HTML interno
+console.log(caja.textContent); // Obtiene solo el texto
+caja.textContent = "Nuevo texto";
+
+caja.innerHTML = "<strong>Otro texto</strong>"; // Asigna HTML interno
+```
+
+### Creación e Inserción de Elementos
+
+```javascript
+// Crear una etiqueta HTML y un nodo de texto
+const nuevoParrafo = document.createElement("p");
+const textoParrafo = document.createTextNode("Este es un texto de prueba.");
+
+// Unir el texto al párrafo e insertarlo en el padre
+nuevoParrafo.appendChild(textoParrafo);
+document.body.appendChild(nuevoParrafo);
+
+// Métodos modernos de inserción:
+// .append(): Añade elementos o texto al final dentro del contenedor
+caja.append(nuevoParrafo);
+
+// .prepend(): Añade elementos o texto al inicio dentro del contenedor
+caja.prepend(nuevoParrafo);
+
+// Inspeccionar el tipo de variable o elemento
+console.log(typeof nuevoParrafo);
+```
+
+---
+
+## 4. Manejo del BOM (Browser Object Model)
+
+El **BOM** permite interactuar con el navegador fuera del contenido de la página web.
+
+```javascript
+// Obtener las dimensiones de la ventana del navegador (viewport)
+console.log(window.innerWidth);
+console.log(window.innerHeight);
+
+// Obtener la resolución total de la pantalla del usuario
+console.log(screen.width);
+console.log(screen.height);
+
+// Obtener o cambiar la URL actual de la página
+console.log(window.location.href);
+
+// Abrir una nueva ventana o pestaña del navegador
+window.open("https://www.google.com");
+```
+
+---
+
+## 5. Eventos en JavaScript
+
+Los eventos permiten ejecutar código en respuesta a las acciones del usuario.
+
+### Eventos de Ratón (*Mouse Events*)
+
+* `click`: Se dispara cuando se hace clic sobre un elemento.
+* `dblclick`: Se dispara con un doble clic.
+* `mouseover`: Se dispara cuando el puntero del ratón entra en un elemento.
+* `mouseout`: Se dispara cuando el puntero del ratón sale de un elemento.
+
+```javascript
+const boton = document.querySelector("#miBoton");
+
+// Escuchador de eventos recomendada (addEventListener)
+boton.addEventListener("click", () => {
+  console.log("¡Has hecho clic en el botón!");
+});
+```
