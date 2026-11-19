@@ -1,4 +1,4 @@
-# Git desde cero — Aplicaciones Ofimáticas (SMR)
+# Git desde cero
 
 > **Entorno de referencia:** Windows con Git Bash, Visual Studio Code y cuenta en GitHub.
 > **Forma de entrega general:** salvo que se indique otra cosa, cada práctica se entrega como un documento PDF con capturas de pantalla de la terminal **donde se vea el comando y su resultado**, más el enlace al repositorio cuando proceda.
