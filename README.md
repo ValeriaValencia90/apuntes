@@ -274,6 +274,9 @@ caja.style.color = "white";
 // Modificar o asignar la clase CSS
 caja.className = "mi-clase-personalizada";
 
+// Añade la clase si no está, o la quita si ya estaba
+caja.classList.toggle("dark-mode");
+
 // Obtener o modificar texto/HTML interno
 console.log(caja.textContent); // Obtiene solo el texto
 caja.textContent = "Nuevo texto";
