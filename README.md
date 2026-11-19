@@ -1,4 +1,4 @@
 Aquí van mis apuntes
 
-[Javascript](javascript.md)
-[Git](git.md)
+* [Javascript](javascript.md)
+* [Git](git.md)
